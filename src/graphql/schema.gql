@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  passwordConfirm: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  signUp(createUserInput: CreateUserInput!): User!
+}
+
+type Query {
+  signIn(signUserInput: SignUserInput!): UserSignin!
+}
+
+input SignUserInput {
+  identifier: String!
+  password: String!
+}
+
+type User {
+  email: String!
+  id: String!
+  joinedAt: DateTime!
+  password: String!
+  username: String!
+}
+
+type UserSign {
+  email: String!
+  id: String!
+  joinedAt: DateTime!
+  username: String!
+}
+
+type UserSignin {
+  token: String!
+  user: UserSign!
+}
